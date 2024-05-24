@@ -1,7 +1,6 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
-
-const List<String> constructorsCode = [
-  """class ConstConstructorsPage extends StatelessWidget {
+const Map<String, dynamic> constructors = {
+  "code": [
+    """class ConstConstructorsPage extends StatelessWidget {
   // Const constructor to create an immutable object.
   // Only the key parameter from the superclass (StatelessWidget) is passed.
   // const MyConstructorsPage({super.key});
@@ -13,7 +12,7 @@ const List<String> constructorsCode = [
     return const Placeholder();
   }
 } """,
-  """ class ParameterizedConstructorPage extends StatelessWidget {
+    """ class ParameterizedConstructorPage extends StatelessWidget {
   final String name;
   //constructor that takes parameters
   //to initialize the object with specific values.
@@ -26,7 +25,7 @@ const List<String> constructorsCode = [
     );
   }
 }""",
-  """ class NamedConstructorPage extends StatelessWidget {
+    """ class NamedConstructorPage extends StatelessWidget {
   String firstName;
   String secondName;
   //normalParameterized Constructo
@@ -65,39 +64,7 @@ class MyWidget extends StatelessWidget {
     ]);
   }
 }""",
-  """class Person {
-  String name;
-  int age;
-  // Parameterized constructor
-  Person(this.name, this.age);
-  // Named constructor with only name parameter
-  Person.withName(String name) : this(name, 0);
-  // Redirecting constructor
-  // It helps to initialize an object using different inputs
-  Person.fromFullName(String fullName)
-      : name = fullName.split(' ').first,
-        age = fullName.split(' ').last as int;
-  @override
-  String toString() => 'Person(name: \$name, age: \$age)';
-}
-
-class MyWidget extends StatelessWidget {
-  const MyWidget({super.key});
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        // Parameterized constructor
-        Text(Person("ashrf", 30).toString()),
-        // Named constructor
-        Text(Person.withName("name").toString()),
-        // Redirecting constructor
-        Text(Person.fromFullName("ashrf 30").toString()),
-      ],
-    );
-  }
-} """,
-  """void main() {
+    """void main() {
   runApp(MaterialApp(
       home: CustomWidget(
           title: 'Hello, World!',
@@ -139,7 +106,7 @@ class CustomWidget extends BaseWidget {
         ));
   }
 }""",
-  """ class User {
+    """ class User {
   final String name;
   final int age;
 
@@ -178,52 +145,20 @@ void main() {
   var csvUser = User.fromCsv('Bob,25');
   print(csvUser); // Output: User(name: Bob, age: 25)
 }""",
-];
-const List<String> constructors = [
-  "Const Constructor",
-  "Parameterized Constructor",
-  "Named Constructor",
-  "Redirecting constructor",
-  "super constructor",
-  "Factory constructors"
-];
-
-class User {
-  final String name;
-  final int age;
-
-  // Regular constructor
-  User(this.name, this.age);
-
-  //Factory constructors have more control over object creation
-  //They can return new instances or existing instances based on logic
-
-  // Factory constructor for creating a User from JSON data
-  factory User.fromJson(Map<String, dynamic> json) {
-    return User(
-      json['name'] as String,
-      json['age'] as int,
-    );
+  ],
+  "title": [
+    "Const Constructor",
+    "Parameterized Constructor",
+    "Named Constructor",
+    "super constructor",
+    "Factory constructors"
+  ],
+  "keywords": {
+    "": ["special method", "initialize an object"],
+    "Parameterized Constructor": ["specific values"],
+    "Named Constructor": ["multiple constructors"],
+    "Constant constructor": ["immutable object"],
+    "Factory constructor": ["return based on logic"],
+    "super constructor": ["calling superclass constructor"]
   }
-  // Factory constructor for creating a User from a CSV string
-  factory User.fromCsv(String csv) {
-    var parts = csv.split(',');
-    return User(
-      parts[0],
-      int.parse(parts[1]),
-    );
-  }
-  @override
-  String toString() {
-    return 'User(name: $name, age: $age)';
-  }
-}
-
-void main() {
-  // Creating a User from JSON
-  var jsonUser = User.fromJson({'name': 'Alice', 'age': 30});
-  print(jsonUser); // Output: User(name: Alice, age: 30)
-  // Creating a User from CSV
-  var csvUser = User.fromCsv('Bob,25');
-  print(csvUser); // Output: User(name: Bob, age: 25)
-}
+};

@@ -1,7 +1,8 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
+// const Map<String, List<String>> encapsulation = {"code": [], "title": []};
 
-const List<String> encapsulationCode = [
-  """class Person {
+const Map<String, dynamic> encapsulation = {
+  "code": [
+    """class Person {
 // **Encapsulation: Use underscore make  private
 // and provide public methods to access/modify them.
 // **Library Scope: Private variables & methods are accessible only
@@ -27,7 +28,7 @@ const List<String> encapsulationCode = [
   // Method to display person details
   void displayInfo() { print('Name: \$_name, Age: \$_age'); }
 } """,
-  """ void main() {
+    """ void main() {
 // main.dart seprated file
   var person = Person('John Doe', 25);
   person.displayInfo(); // Output: Name: John Doe, Age: 25
@@ -43,8 +44,19 @@ const List<String> encapsulationCode = [
   // print(person._name); // Error: The getter '_name' isn't defined for the class 'Person'.
   // person._age = 40; // Error: The setter '_age' isn't defined for the class 'Person'.
 }"""
-];
-const List<String> encapsulations = [
-  "Encapsulation person.dart seprated file ",
-  "Encapsulation main.dart seprated file ",
-];
+  ],
+  "title": [
+    "Encapsulation person.dart seprated file ",
+    "Encapsulation main.dart seprated file ",
+  ],
+  "keywords": {
+    "": [
+      "underscore",
+      "private Members",
+      "Library Scope",
+      "public getters ",
+      "public setters",
+      "access"
+    ],
+  }
+};
